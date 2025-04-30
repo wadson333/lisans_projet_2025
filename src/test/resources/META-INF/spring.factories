@@ -1,0 +1,3 @@
+org.springframework.test.context.ContextCustomizerFactory = com.ciatech.\
+    uniconnect.config.SqlTestContainersSpringContextCustomizerFactory,com.\
+    ciatech.uniconnect.config.RedisTestContainersSpringContextCustomizerFactory
