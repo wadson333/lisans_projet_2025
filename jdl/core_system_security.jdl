@@ -39,6 +39,7 @@ entity TbUsers {
   failedLoginAttempts Integer
   isBlocked Boolean
   userType UserType required
+  password String required // Champ ajouté !
   // Note: We don't include password hash here, JHipster manages it separately or we'll adapt its User entity.
   // Let's generate this first and see how JHipster handles user fields vs its own user entity.
 }

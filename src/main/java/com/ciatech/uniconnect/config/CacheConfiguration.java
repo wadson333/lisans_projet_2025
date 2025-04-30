@@ -78,6 +78,17 @@ public class CacheConfiguration {
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer(javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration) {
         return cm -> {
+            createCache(cm, com.ciatech.uniconnect.domain.TbAddresses.class.getName(), jcacheConfiguration);
+            createCache(cm, com.ciatech.uniconnect.domain.TbLoginAttempts.class.getName(), jcacheConfiguration);
+            createCache(cm, com.ciatech.uniconnect.domain.TbOtp.class.getName(), jcacheConfiguration);
+            createCache(cm, com.ciatech.uniconnect.domain.TbPasswordHistory.class.getName(), jcacheConfiguration);
+            createCache(cm, com.ciatech.uniconnect.domain.TbPermissions.class.getName(), jcacheConfiguration);
+            createCache(cm, com.ciatech.uniconnect.domain.TbPermissions.class.getName() + ".roles", jcacheConfiguration);
+            createCache(cm, com.ciatech.uniconnect.domain.TbRoles.class.getName(), jcacheConfiguration);
+            createCache(cm, com.ciatech.uniconnect.domain.TbRoles.class.getName() + ".permissions", jcacheConfiguration);
+            createCache(cm, com.ciatech.uniconnect.domain.TbRoles.class.getName() + ".users", jcacheConfiguration);
+            createCache(cm, com.ciatech.uniconnect.domain.TbUsers.class.getName(), jcacheConfiguration);
+            createCache(cm, com.ciatech.uniconnect.domain.TbUsers.class.getName() + ".roles", jcacheConfiguration);
             // jhipster-needle-redis-add-entry
         };
     }

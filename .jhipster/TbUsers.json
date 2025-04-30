@@ -1,5 +1,7 @@
 {
-  "annotations": {},
+  "annotations": {
+    "changelogDate": "20250430164144"
+  },
   "applications": "*",
   "dto": "mapstruct",
   "fields": [
@@ -96,6 +98,11 @@
       "fieldType": "UserType",
       "fieldValidateRules": ["required"],
       "fieldValues": "STUDENT,EMPLOYEE"
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
     }
   ],
   "name": "TbUsers",
@@ -115,5 +122,6 @@
       "relationshipType": "many-to-many"
     }
   ],
+  "searchEngine": "no",
   "service": "serviceImpl"
 }
