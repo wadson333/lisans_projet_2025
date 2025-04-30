@@ -1,0 +1,43 @@
+{
+  "annotations": {},
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isSystemRole",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isEditable",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "TbRoles",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "tbPermissions",
+      "otherEntityRelationshipName": "roles",
+      "relationshipName": "permissions",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "tbUsers",
+      "otherEntityRelationshipName": "roles",
+      "relationshipName": "users",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

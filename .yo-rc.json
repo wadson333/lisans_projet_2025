@@ -5,7 +5,7 @@
     "baseName": "uniconnect",
     "buildTool": "maven",
     "cacheProvider": "redis",
-    "creationTimestamp": 1746028215915,
+    "creationTimestamp": 1746029713578,
     "databaseType": "sql",
     "devDatabaseType": "postgresql",
     "enableHibernateCache": true,

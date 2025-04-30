@@ -1,10 +1,15 @@
+                 .__                                                 __    
+ __ __    ____   |__|   ____     ____     ____     ____     ____   _/  |_  
+|  |  \  /    \  |  | _/ ___\   /  _ \   /    \  _/ __ \  _/ ___\  \   __\ 
+|  |  / |   |  \ |  | \  \___  (  <_> ) |   |  \ \  ___/  \  \___   |  |   
+|____/  |___|  / |__|  \___  >  \____/  |___|  /  \___  >  \___  >  |__|   
+             \/            \/                \/       \/       \/        
 
-  ${AnsiColor.GREEN}      ██╗${AnsiColor.RED} ██╗   ██╗ ████████╗ ███████╗   ██████╗ ████████╗ ████████╗ ███████╗
-  ${AnsiColor.GREEN}      ██║${AnsiColor.RED} ██║   ██║ ╚══██╔══╝ ██╔═══██╗ ██╔════╝ ╚══██╔══╝ ██╔═════╝ ██╔═══██╗
-  ${AnsiColor.GREEN}      ██║${AnsiColor.RED} ████████║    ██║    ███████╔╝ ╚█████╗     ██║    ██████╗   ███████╔╝
-  ${AnsiColor.GREEN}██╗   ██║${AnsiColor.RED} ██╔═══██║    ██║    ██╔════╝   ╚═══██╗    ██║    ██╔═══╝   ██╔══██║
-  ${AnsiColor.GREEN}╚██████╔╝${AnsiColor.RED} ██║   ██║ ████████╗ ██║       ██████╔╝    ██║    ████████╗ ██║  ╚██╗
-  ${AnsiColor.GREEN} ╚═════╝ ${AnsiColor.RED} ╚═╝   ╚═╝ ╚═══════╝ ╚═╝       ╚═════╝     ╚═╝    ╚═══════╝ ╚═╝   ╚═╝
+${AnsiColor.BRIGHT_BLUE}:: JHipster 🤓  :: Running Spring Boot ${spring-boot.version} :: Startup profile(s) ${spring.profiles.active}
 
-${AnsiColor.BRIGHT_BLUE}:: JHipster 🤓  :: Running Spring Boot ${spring-boot.version} :: Startup profile(s) ${spring.profiles.active} ::
-:: https://www.jhipster.tech ::${AnsiColor.DEFAULT}
+         .__             __                      .__      
+  ____   |__| _____    _/  |_    ____     ____   |  |__   
+_/ ___\  |  | \__  \   \   __\ _/ __ \  _/ ___\  |  |  \  
+\  \___  |  |  / __ \_  |  |   \  ___/  \  \___  |   Y  \ 
+ \___  > |__| (____  /  |__|    \___  >  \___  > |___|  / 
+     \/            \/               \/       \/       \/  

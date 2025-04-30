@@ -1,0 +1,28 @@
+{
+  "annotations": {},
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "action",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "name": "TbPermissions",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "tbRoles",
+      "otherEntityRelationshipName": "permissions",
+      "relationshipName": "roles",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,118 @@
+enum AccountStatus {
+  ACTIVE, BLOCKED, INACTIVE, SUSPENDED
+}
+
+enum Sex {
+  M, F
+}
+
+enum MaritalStatus {
+  MARIE, CELIBATAIRE, VEUF, DIVORCE, CONCUBINAGE
+}
+
+enum LoginAttemptStatus {
+  SUCCESS, FAILED
+}
+
+enum UserType {
+  STUDENT, EMPLOYEE
+}
+
+
+entity TbUsers {
+  firstName String required
+  lastName String required
+  telephone String required
+  email String required unique
+  otherTelephone String
+  dob LocalDate required
+  nif String unique
+  cin String unique
+  ninu String unique
+  passportNumber String unique
+  licenceNumber String unique
+  code String required unique // Potentially the user login or internal ID
+  sex Sex required
+  maritalStatus MaritalStatus
+  isActive AccountStatus required
+  twoFactorEnabled Boolean
+  failedLoginAttempts Integer
+  isBlocked Boolean
+  userType UserType required
+  // Note: We don't include password hash here, JHipster manages it separately or we'll adapt its User entity.
+  // Let's generate this first and see how JHipster handles user fields vs its own user entity.
+}
+
+entity TbRoles {
+  name String required unique
+  description String
+  isSystemRole Boolean
+  isEditable Boolean
+}
+
+entity TbPermissions {
+  action String required // e.g., 'READ_USER', 'CREATE_COURSE'
+  description String
+}
+
+entity TbPasswordHistory {
+  passwordHash String required // Store hash, not plain text
+  passwordSalt String
+  createdAt ZonedDateTime
+  isCurrent Boolean
+  changeReason String
+  validTo ZonedDateTime
+  canReuse Boolean
+}
+
+entity TbLoginAttempts {
+  ipAddress String
+  userAgent String
+  status LoginAttemptStatus required
+  attemptAt ZonedDateTime
+  deviceType String
+}
+
+entity TbOtp {
+  otpCode String required // Store securely, perhaps hashed
+  createdAt Instant required
+  expirationTime Instant required
+  attemptCount Integer
+  maxAttempts Integer
+}
+
+// Address is often linked to User
+entity TbAddresses {
+  fullAddress String required
+  codeSectionCommunale Integer // We might need TbGeo entities later for this
+}
+
+
+relationship ManyToOne {
+  TbUsers{tbAddresses} to TbAddresses
+  TbLoginAttempts{user} to TbUsers
+  TbPasswordHistory{user} to TbUsers
+  TbOtp{user} to TbUsers
+  // We'll add TbGeoDepartments later for TbAddresses
+}
+
+// Define Join Entities for ManyToMany explicitly if needed, or let JHipster manage them implicitly.
+// Let's use implicit join tables managed by JHipster for simplicity first.
+// If we used the Rl entities:
+// relationship ManyToOne {
+//   RlUserRoles{user} to TbUsers,
+//   RlUserRoles{role} to TbRoles,
+//   RlRolePermissions{role} to TbRoles,
+//   RlRolePermissions{permission} to TbPermissions
+// }
+
+// Using implicit ManyToMany join tables (simpler for JHipster):
+relationship ManyToMany {
+    TbUsers{roles} to TbRoles{users}
+    TbRoles{permissions} to TbPermissions{roles}
+}
+
+// --- JHipster Options ---
+dto * with mapstruct
+service all with serviceImpl
+paginate * with pagination

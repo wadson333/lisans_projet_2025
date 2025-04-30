@@ -1,0 +1,40 @@
+{
+  "annotations": {},
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "ipAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userAgent",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "LoginAttemptStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "SUCCESS,FAILED"
+    },
+    {
+      "fieldName": "attemptAt",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "deviceType",
+      "fieldType": "String"
+    }
+  ],
+  "name": "TbLoginAttempts",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "tbUsers",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,41 @@
+{
+  "annotations": {},
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "otpCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "expirationTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "attemptCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxAttempts",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "TbOtp",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "tbUsers",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,20 @@
+{
+  "annotations": {},
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "fullAddress",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "codeSectionCommunale",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "TbAddresses",
+  "pagination": "pagination",
+  "relationships": [],
+  "service": "serviceImpl"
+}
