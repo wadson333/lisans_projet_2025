@@ -27,4 +27,34 @@ public interface TbUsersRepository extends TbUsersRepositoryWithBagRelationships
     default Page<TbUsers> findAllWithEagerRelationships(Pageable pageable) {
         return this.fetchBagRelationships(this.findAll(pageable));
     }
+
+    // Méthode pour trouver un utilisateur par email (ignorant la casse)
+    // et charger ses rôles immédiatement grâce à @EntityGraph.
+    @EntityGraph(attributePaths = "roles") // Charge la collection 'roles'
+    Optional<TbUsers> findOneWithRolesByEmailIgnoreCase(String email);
+
+    // JHipster a peut-être aussi généré findOneByEmailIgnoreCase,
+    // = "roles") // Fetch the 'roles' collection eagerly
+    Optional<TbUsers> findOneWithRolesByEmail(String email);
+
+    Optional<TbUsers> findByEmail(String email);
+
+    Optional<TbUsers> findByCode(String code); // If 'code' is also a unique identifier
+    // Méthode pour trouver un utilisateur par code (ignorant la casse)
+    // et charger ses rôles immédiatement grâce à @EntityGraph.
+    Optional<TbUsers> findOneWithRolesByCodeIgnoreCase(String code); // If 'code' is also a unique identifier
+
+    /**
+     * Trouve un utilisateur par son email (sans tenir compte de la casse)
+     * et charge immédiatement sa collection de rôles ET les permissions associées à ces rôles.
+     *
+     * @param email l'email à rechercher.
+     * @return un Optional contenant TbUsers avec ses rôles et permissions, ou vide si non trouvé.
+     */
+    // MODIFICATION ICI : Ajout de "roles.permissions" à attributePaths
+    @EntityGraph(attributePaths = { "roles", "roles.permissions" })
+    Optional<TbUsers> findOneWithRolesAndPermissionsByEmailIgnoreCase(String email);
+
+    @EntityGraph(attributePaths = { "roles", "roles.permissions" })
+    Optional<TbUsers> findOneWithRolesAndPermissionsByCodeIgnoreCase(String code);
 }
